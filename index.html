@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="heart.ico">
+    <title>Game Select</title>
+    <style>
+    @font-face {
+        font-family: valentineFont;
+        src: url(ladylike-bb.regular.ttf);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #353535;
+    }
+
+    .wrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .heart {
+        box-shadow: 15px 0px #c487c3;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: #f5a9f4;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: none;
+        z-index: 2;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }   
+
+    .coverShadow {
+        box-shadow: 15px 0px #c487c3;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: #f5a9f4;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: none;
+        z-index: 10;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }   
+
+    .heart:focus {
+        outline: none;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #f5a9f4;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -50px;
+        left: 0;
+        box-shadow: 15px 0px #c487c3;
+    }
+
+    .heart::after {
+        top: 0;
+        left: -50px;
+    }
+
+    .wrapper:nth-of-type(1) {
+        margin-right: 100px;
+    }
+
+    .plinkoText {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: red;
+        font-weight: bold;
+        font-size: 45px;
+        font-family: valentineFont;
+        z-index: 50; 
+    }
+
+    .freePlayText {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: red;
+        font-weight: bold;
+        font-size: 32px;
+        font-family: valentineFont;
+        z-index: 50;
+    }
+
+    .wrapper:hover .coverShadow,
+    .wrapper:hover .heart {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
+    }
+
+    
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <button class="coverShadow"></button>
+        <button class="heart"></button>
+        <a href="Plinko.html">
+        <div class="plinkoText">Plinko</div>
+        </a>   
+    </div>
+    <div class="wrapper">
+        <a href="Free Play/freePlay.html">
+        <button class="coverShadow"></button>
+        <button class="heart"></button>
+        <div class="freePlayText">Free Play</div>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="heart.ico">
+    <title>Card</title>
+    <style>
+        @font-face {
+            font-family: valentineFont;
+            src: url(ladylike-bb.regular.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #353535;
+        }
+
+        h1 {
+            font-family: valentineFont;
+        }
+
+        .card {
+            background-color: white;
+            width: 500px;
+            height: 600px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #card1 {
+            display: none;
+        }
+
+        #card2 {
+            display: none;
+        }
+
+        #card3 {
+            display: none;
+        }
+
+        .wrapper {
+        width: 200px;
+        height: 200px;
+        top: 90%;
+        position: absolute;
+    }
+
+    .heart {
+        box-shadow: 15px 0px #c487c3;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: #f5a9f4;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: none;
+        z-index: 2;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }   
+
+    .coverShadow {
+        box-shadow: 15px 0px #c487c3;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: #f5a9f4;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: none;
+        z-index: 10;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }   
+
+    .heart:focus {
+        outline: none;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #f5a9f4;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -50px;
+        left: 0;
+        box-shadow: 15px 0px #c487c3;
+    }
+
+    .heart::after {
+        top: 0;
+        left: -50px;
+    }
+
+    .wrapper:nth-of-type(1) {
+        margin-right: 100px;
+    }
+
+    .plinkoText {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: red;
+        font-weight: bold;
+        font-size: 45px;
+        font-family: valentineFont;
+        z-index: 50; 
+    }
+
+    .freePlayText {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: red;
+        font-weight: bold;
+        font-size: 32px;
+        font-family: valentineFont;
+        z-index: 50;
+    }
+
+    .wrapper:hover .coverShadow,
+    .wrapper:hover .heart {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
+    }
+    </style>
+
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        window.addEventListener("load", function () {
+            const cards = document.querySelectorAll(".card");
+            const randomIndex = getRandomInt(cards.length);
+            cards[randomIndex].style.display = "flex";
+        });
+    </script>
+
+</head>
+<body>
+    <div id="card1" class="card">
+        <img src="card1.png" alt="Card 1">
+        <!-- Add card content here -->
+    </div>
+
+    <div id="card2" class="card">
+        <img src="Card2.png" alt="Card 2">
+        <!-- Add card content here -->
+    </div>
+
+    <div id="card3" class="card">
+        <img src="Card3.png" alt="Card 3">
+        <!-- Add card content here -->
+    </div>
+
+    <div class="wrapper">
+        <button class="coverShadow"></button>
+        <button class="heart"></button>
+        <a href="Plinko.html">
+        <div class="plinkoText">Back</div>
+        </a>   
+    </div>
+
+</body>
+</html>

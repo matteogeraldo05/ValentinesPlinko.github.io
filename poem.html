@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="heart.ico">
+    <title>Poem</title>
+    <style>
+    @font-face {
+        font-family: valentineFont;
+        src: url(ladylike-bb.regular.ttf);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #353535;
+    }
+
+    h1{
+        font-family: valentineFont;
+        color: white;
+        width: 70%;
+        font-size: 80px;
+        font-weight: 100;
+    }
+    
+
+    .wrapper {
+        width: 200px;
+        height: 200px;
+        top: 60%;
+        position: absolute;
+    }
+
+    .heart {
+        box-shadow: 15px 0px #c487c3;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: #f5a9f4;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: none;
+        z-index: 2;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }   
+
+    .coverShadow {
+        box-shadow: 15px 0px #c487c3;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: #f5a9f4;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: none;
+        z-index: 10;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }   
+
+    .heart:focus {
+        outline: none;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #f5a9f4;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -50px;
+        left: 0;
+        box-shadow: 15px 0px #c487c3;
+    }
+
+    .heart::after {
+        top: 0;
+        left: -50px;
+    }
+
+    .wrapper:nth-of-type(1) {
+        margin-right: 100px;
+    }
+
+    .plinkoText {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: red;
+        font-weight: bold;
+        font-size: 45px;
+        font-family: valentineFont;
+        z-index: 50; 
+    }
+
+    .freePlayText {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: red;
+        font-weight: bold;
+        font-size: 32px;
+        font-family: valentineFont;
+        z-index: 50;
+    }
+
+    .wrapper:hover .coverShadow,
+    .wrapper:hover .heart {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
+    }
+
+    
+    </style>
+
+</head>
+<body>
+    <h1 id="poem">Poem</h1>
+
+    <div class="wrapper">
+        <button class="coverShadow"></button>
+        <button class="heart"></button>
+        <a href="Plinko.html">
+        <div class="plinkoText">Back</div>
+        </a>   
+    </div>
+
+    <script>
+        var poems = [
+            "Julia, I don't have the words to say,\nEven though we are far apart,\nYour smile brightens up my day,\nI hold it close in my heart.",
+            "Julia, the girl I've always had a crush on,\nWith you I feel so free,\nYou're the one who makes me feel strong,\nYour voice is like a sweet melody.",
+            "Julia, you shine like a star,\nYour beauty is like a work of art,\nEven though we may be far,\nIm so glad you stole my heart.",
+            "Julia, you make my life complete,\nI'll love you always, no matter where you are,\nWith you, every day feels like a treat,\nAnd all my worries seem so far.",
+            "Julia, you're like a warm fire on a cold night,\nLike a garden full of flowers,\nYou make everything feel just right,\nI'm thinking about you through every hour."
+        ];
+        
+        var poemIndex = Math.floor(Math.random() * poems.length);
+        var poemElement = document.getElementById("poem");
+        poemElement.textContent = poems[poemIndex];
+    </script>
+</body>
+</html>
